@@ -5,6 +5,8 @@ import (
 	"github.com/aws/aws-lambda-go/lambda"
 	"github.com/chrisxue815/realworld-aws-lambda-dynamodb-go/service"
 	"github.com/chrisxue815/realworld-aws-lambda-dynamodb-go/util"
+	"log"
+	"encoding/json"
 )
 
 type Response struct {
@@ -19,6 +21,8 @@ type ProfileResponse struct {
 }
 
 func Handle(input events.APIGatewayProxyRequest) (events.APIGatewayProxyResponse, error) {
+	eventJson, _ := json.MarshalIndent(input, "", "  ")
+	log.Printf("EVENT: %s", eventJson)
 	user, _, _ := service.GetCurrentUser(input.Headers["Authorization"])
 
 	publisher, err := service.GetUserByUsername(input.PathParameters["username"])

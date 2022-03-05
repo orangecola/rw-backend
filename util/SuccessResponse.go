@@ -3,6 +3,7 @@ package util
 import (
 	"encoding/json"
 	"github.com/aws/aws-lambda-go/events"
+	"log"
 )
 
 func CORSHeaders() map[string]string {
@@ -17,9 +18,10 @@ func NewSuccessResponse(statusCode int, body interface{}) (events.APIGatewayProx
 		StatusCode: statusCode,
 		Headers:    CORSHeaders(),
 	}
-
+	log.Printf("Success Response: %s", statusCode)
 	if body != nil {
 		jsonBody, err := json.Marshal(body)
+		log.Printf("Response Body: %s", jsonBody)
 		if err != nil {
 			return NewErrorResponse(err)
 		}
