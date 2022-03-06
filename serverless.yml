@@ -238,10 +238,7 @@ resources:
             KeyType: HASH
         PointInTimeRecoverySpecification:
           PointInTimeRecoveryEnabled: true
-        BillingMode: PROVISIONED
-        ProvisionedThroughput:
-          ReadCapacityUnits: 2
-          WriteCapacityUnits: 2
+        BillingMode: PAY_PER_REQUEST
 
     EmailUserTable:
       Type: AWS::DynamoDB::Table
@@ -255,10 +252,7 @@ resources:
             KeyType: HASH
         PointInTimeRecoverySpecification:
           PointInTimeRecoveryEnabled: true
-        BillingMode: PROVISIONED
-        ProvisionedThroughput:
-          ReadCapacityUnits: 2
-          WriteCapacityUnits: 2
+        BillingMode: PAY_PER_REQUEST
 
     FollowTable:
       Type: AWS::DynamoDB::Table
@@ -276,10 +270,7 @@ resources:
             KeyType: RANGE
         PointInTimeRecoverySpecification:
           PointInTimeRecoveryEnabled: true
-        BillingMode: PROVISIONED
-        ProvisionedThroughput:
-          ReadCapacityUnits: 2
-          WriteCapacityUnits: 2
+        BillingMode: PAY_PER_REQUEST
 
     ArticleTable:
       Type: AWS::DynamoDB::Table
@@ -306,9 +297,6 @@ resources:
                 KeyType: RANGE
             Projection:
               ProjectionType: ALL
-            ProvisionedThroughput:
-              ReadCapacityUnits: 2
-              WriteCapacityUnits: 2
           - IndexName: Author
             KeySchema:  # GET /articles?author=:author
               - AttributeName: Author
@@ -317,15 +305,9 @@ resources:
                 KeyType: RANGE
             Projection:
               ProjectionType: ALL
-            ProvisionedThroughput:
-              ReadCapacityUnits: 2
-              WriteCapacityUnits: 2
         PointInTimeRecoverySpecification:
           PointInTimeRecoveryEnabled: true
-        BillingMode: PROVISIONED
-        ProvisionedThroughput:
-          ReadCapacityUnits: 2
-          WriteCapacityUnits: 2
+        BillingMode: PAY_PER_REQUEST
 
     ArticleTagTable:
       Type: AWS::DynamoDB::Table
@@ -354,10 +336,7 @@ resources:
               ProjectionType: ALL
         PointInTimeRecoverySpecification:
           PointInTimeRecoveryEnabled: true
-        BillingMode: PROVISIONED
-        ProvisionedThroughput:
-          ReadCapacityUnits: 2
-          WriteCapacityUnits: 2
+        BillingMode: PAY_PER_REQUEST
 
     TagTable:
       Type: AWS::DynamoDB::Table
@@ -382,15 +361,9 @@ resources:
                 KeyType: RANGE
             Projection:
               ProjectionType: ALL
-            ProvisionedThroughput:
-              ReadCapacityUnits: 2
-              WriteCapacityUnits: 2
         PointInTimeRecoverySpecification:
           PointInTimeRecoveryEnabled: true
-        BillingMode: PROVISIONED
-        ProvisionedThroughput:
-          ReadCapacityUnits: 2
-          WriteCapacityUnits: 2
+        BillingMode: PAY_PER_REQUEST
 
     FavoriteArticleTable:
       Type: AWS::DynamoDB::Table
@@ -419,10 +392,7 @@ resources:
               ProjectionType: ALL
         PointInTimeRecoverySpecification:
           PointInTimeRecoveryEnabled: true
-        BillingMode: PROVISIONED
-        ProvisionedThroughput:
-          ReadCapacityUnits: 2
-          WriteCapacityUnits: 2
+        BillingMode: PAY_PER_REQUEST
 
     CommentTable:
       Type: AWS::DynamoDB::Table
@@ -451,7 +421,4 @@ resources:
               ProjectionType: ALL
         PointInTimeRecoverySpecification:
           PointInTimeRecoveryEnabled: true
-        BillingMode: PROVISIONED
-        ProvisionedThroughput:
-          ReadCapacityUnits: 2
-          WriteCapacityUnits: 2
+        BillingMode: PAY_PER_REQUEST
